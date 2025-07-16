@@ -1,0 +1,15 @@
+# Gambas Project File 3.0
+Title=MiNota
+Startup=FMain
+Version=1.0.2
+Component=gb.image
+Component=gb.gtk3
+Component=gb.form
+Component=gb.form.dialog
+Component=gb.gtk3.webview
+Description="Editor de Texto em formato HTML."
+Authors="Murilo Gomes Julio <suporte@mugomes.com.br>"
+TabSize=2
+Language=pt_BR
+Vendor=mugomes
+Packager=1

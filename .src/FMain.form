@@ -1,0 +1,53 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  Text = ("MiNota")
+  { Menu1 Menu
+    Text = ("Arquivo")
+    { mnuNew Menu
+      Text = ("Novo")
+      Shortcut = "Ctrl+N"
+    }
+    { Menu2 Menu
+    }
+    { mnuOpen Menu
+      Text = ("Abrir")
+      Shortcut = "Ctrl+O"
+    }
+    { Menu3 Menu
+    }
+    { mnuSave Menu
+      Text = ("Salvar")
+      Shortcut = "Ctrl+S"
+    }
+    { mnuSaveAs Menu
+      Text = ("Salvar como") & "..."
+    }
+    { Menu4 Menu
+    }
+    { mnuClose Menu
+      Text = ("Sair")
+      Shortcut = "Alt+F4"
+    }
+  }
+  { Menu5 Menu
+    Text = ("Sobre")
+    { mnuCheckUpdate Menu
+      Text = ("Verificar Atualização")
+    }
+    { Menu6 Menu
+    }
+    { mnuAssinantes Menu
+      Text = ("Assinantes")
+    }
+    { Menu7 Menu
+    }
+    { mnuSobre Menu
+      Text = ("Sobre MiNota")
+    }
+  }
+  { wb WebView
+    MoveScaled(0,0,24,18)
+  }
+}

@@ -1,0 +1,104 @@
+' Gambas class file
+
+' Copyright (C) 2025 Murilo Gomes Julio
+' SPDX-License-Identifier: GPL-2.0-only
+
+' Site: https://www.mugomes.com.br
+
+Private sFileName As String = ""
+
+Private Function getHTML() As String 
+  
+  Dim txt As String = wb.ExecJavascript("getHTML()")
+  
+  txt = Left(txt, Len(txt) - 1)
+  txt = Right(txt, Len(txt) - 1)
+  txt = Replace(txt, "'", "\\'")
+  
+  Return txt
+  
+End
+
+Public Sub Form_Resize()
+  
+  wb.Width = Me.Width
+  wb.Height = Me.Height - 30
+  
+End
+
+Public Sub Form_Open()
+  
+  wb.url = "file:///" & Application.Path & "/hugerte/editor.html"
+  
+End
+
+Public Sub mnuNew_Click()
+  
+  wb.ExecJavascript("setHTML('')")
+  
+End
+
+Public Sub mnuOpen_Click()
+  
+  Dialog.Title = "Abrir Arquivo"
+  Dialog.Filter = ["*.html", "Documento HTML"]
+  If Dialog.OpenFile() Then Return 
+  wb.ExecJavascript("setHTML('" & File.Load(Dialog.Path) & "')")
+  
+End
+
+Public Sub mnuSave_Click()
+  
+  If sFileName = "" Then 
+    mnuSaveAs_Click
+  Else 
+    File.Save(sFileName, getHTML())
+  Endif
+  
+End
+
+Public Sub mnuSaveAs_Click()
+
+  Dialog.Title = "Salvar como..."
+  Dialog.Filter = ["*.html", "Documento HTML"]
+  If Dialog.SaveFile() Then Return 
+  sFileName = Dialog.Path
+  File.Save(sFileName, getHTML())
+
+End
+
+Public Sub mnuClose_Click()
+  
+  Form_Close
+  
+End
+
+Public Sub Form_Close()  
+  
+  If getHTML() <> "" Then 
+    If Message.Question("Deseja salvar o arquivo antes de sair?", "Sim", "Não") = 1 Then 
+      mnuSave_Click
+    Endif
+  Endif
+  
+  Quit 
+  
+End
+
+Public Sub mnuCheckUpdate_Click()
+
+  Shell "xdg-open \"https://www.mugomes.com.br/2025/07/minota.html\""
+
+End
+
+Public Sub mnuAssinantes_Click()
+
+  Shell "xdg-open \"https://www.mugomes.com.br/p/assinantes.html\""
+
+End
+
+Public Sub mnuSobre_Click()
+
+  FAbout.ShowDialog()
+
+End

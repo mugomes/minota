@@ -1,0 +1,28 @@
+#---- Gambas files to ignore (v6)
+*.gambas
+.lock
+*~
+core
+core.*
+vgcore
+vgcore.*
+.kdbg*
+.*.prof
+.lang/*.pot
+.gambas/*
+.settings
+.startup
+.list
+.info
+.fuse_hidden*
+.profile/*
+#----
+
+# hugerte
+hugerte/icons/
+hugerte/models/
+hugerte/plugins/
+hugerte/skins/
+hugerte/themes/
+hugerte/hugerte.min.js
+hugerte/license.txt
