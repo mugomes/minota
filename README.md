@@ -2,7 +2,7 @@
 
 Editor de Texto em formato HTML.
 
-## InformaÇões
+## Informações
 
 - [Página MiNota](https://www.mugomes.com.br/2025/07/minota.html)
 
